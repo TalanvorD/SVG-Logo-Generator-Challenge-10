@@ -1,4 +1,4 @@
-const inquirer = require("inquirer"); // Imports to be used
+const inquirer = require("inquirer"); // Importing packages
 const fs = require("fs");
 const { Shape, Triangle, Square, Circle } = require("./lib/shapes.js");
 
@@ -70,5 +70,4 @@ inquirer
   .prompt(prompts) // Prompting the user for information regarding the SVG file to be generated
   .then(response => { // Returns the response from the user and passes the values to be used
     writeToFile(response.svgTextLogo, response.svgTextColor, response.svgShape, response.svgShapeColor); // Calls the function to write the SVG file   
-    console.log(`${response.svgTextLogo} ${response.svgTextColor} ${response.svgShape} ${response.svgShapeColor}`);
   });
