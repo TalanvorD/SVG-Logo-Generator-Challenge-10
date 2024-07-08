@@ -1,6 +1,7 @@
 const inquirer = require("inquirer"); // Importing packages
 const fs = require("fs");
 const { Shape, Triangle, Square, Circle } = require("./lib/shapes.js");
+const namedColors = ['aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure', 'beige', 'bisque', 'black', 'blanchedalmond', 'blue', 'blueviolet', 'brown', 'burlywood', 'cadetblue', 'chartreuse', 'chocolate', 'coral', 'cornflowerblue', 'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan', 'darkgoldenrod',  'darkgray', 'darkgreen', 'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange', 'darkorchid', 'darkred', 'darksalmon', 'darkseagreen', 'darkslateblue', 'darkslategray', 'darkslategrey', 'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue', 'dimgray', 'dodgerblue', 'firebrick', 'floralwhite', 'forestgreen', 'fuchsia', 'gainsboro', 'ghostwhite', 'gold', 'goldenrod', 'gray', 'green', 'greenyellow', 'honeydew', 'hotpink', 'indianred', 'indigo', 'ivory', 'khaki', 'lavender', 'lavenderblush', 'lawngreen', 'lemonchiffon', 'lightblue', 'lightcoral', 'lightcyan', 'lightgoldenrodyellow', 'lightgray', 'lightgreen', 'lightpink', 'lightsalmon', 'lightseagreen', 'lightskyblue', 'lightslategray', 'lightsteelblue', 'lightyellow', 'lime', 'limegreen', 'linen', 'magenta', 'maroon', 'mediumaquamarine', 'mediumblue', 'mediumorchid', 'mediumpurple', 'mediumseagreen', 'mediumslateblue', 'mediumspringgreen', 'mediumturquoise', 'mediumvioletred', 'midnightblue', 'mintcream', 'mistyrose', 'moccasin', 'navajowhite', 'navy', 'oldlace', 'olive', 'olivedrab', 'orange', 'orangered', 'orchid', 'palegoldenrod', 'palegreen',  'paleturquoise', 'palevioletred', 'papayawhip', 'peachpuff', 'peru', 'pink', 'plum', 'powderblue', 'purple', 'rebeccapurple', 'red', 'rosybrown', 'royalblue', 'saddlebrown', 'salmon', 'sandybrown', 'seagreen', 'seashell', 'sienna', 'silver', 'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow', 'springgreen', 'steelblue', 'tan', 'teal', 'thistle', 'tomato', 'turquoise', 'violet', 'wheat', 'white', 'whitesmoke', 'yellow', 'yellowgreen'];
 
 const writeToFile = (text, textColor, shape, shapeColor) => { // Takes in the text for the logo, the text color, the shape and the shape color to create the SVG file
     let newShape;
@@ -37,15 +38,16 @@ const prompts = [ // Array of prompts for the user to provide information regard
     },
     {
         type: "input",
-        message: "What color would you like for the text? (Color keyword or hexadecimal number)",
+        message: "What color would you like for the text? (Color keyword or a hexadecimal value i.e. #FFFFFF)",
         name: "svgTextColor",
-        /*validate: (colorCheck) => { // Try to implement this test
-            const result = new Option().style;
-            result.color = colorCheck.toLowerCase();
-            if (!result.color.length > 0){
-                return "Invalid color. Please enter a valid color keyword or hexadecimal number:";
-            } else { return svgTextColor.toLowerCase(); }
-          }*/
+        validate: (colorCheck) => {
+            const numCheckRegEx = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/); // Regex for hexadecimal color value
+            if (namedColors.includes(colorCheck.toLowerCase())){
+                return true;
+            } else if (numCheckRegEx.test(colorCheck)){
+                return true;
+                } else { return "Invalid color. Please enter a valid color keyword or a hexadecimal value i.e. #FFFFFF"; }
+            }
     },
     {
         type: "list",
@@ -56,13 +58,16 @@ const prompts = [ // Array of prompts for the user to provide information regard
     },
     {
         type: "input",
-        message: "What color would you like for the shape? (Color keyword or hexadecimal number)",
+        message: "What color would you like for the shape? (Color keyword or a hexadecimal value i.e. #FFFFFF)",
         name: "svgShapeColor",
-        /*validate: (colorCheck) => { // Try to implement this test
-            if (CSS.supports('color','colorCheck')){
-                return "Invalid color. Please enter a valid color keyword or hexadecimal number:";
-            } else { return true; }
-          }*/
+        validate: (colorCheck) => {
+            const numCheckRegEx = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/); // Regex for hexadecimal color value
+            if (namedColors.includes(colorCheck.toLowerCase())){
+                return true;
+            } else if (numCheckRegEx.test(colorCheck)){
+                return true;
+                } else { return "Invalid color. Please enter a valid color keyword or a hexadecimal value i.e. #FFFFFF"; }
+        }
     }
 ];
 
