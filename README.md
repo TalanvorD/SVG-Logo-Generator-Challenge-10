@@ -55,3 +55,13 @@ Send me an [email](mailto://talanvor_divine@yahoo.com)!
 ## Repository
 
 [https://github.com/TalanvorD/SVG-Logo-Generator-Challenge-8](https://github.com/TalanvorD/SVG-Logo-Generator-Challenge-8)
+
+## Screenshot and Video link
+
+Screenshot
+
+[https://github.com/TalanvorD/SVG-Logo-Generator-Challenge-8/blob/main/SVG-screenshot.jpg](https://github.com/TalanvorD/SVG-Logo-Generator-Challenge-8/blob/main/SVG-screenshot.jpg)
+
+Video
+
+[https://drive.google.com/file/d/1-MesnGibuXYwbGrk_S_6FZ2n5vATWobE/view?usp=sharing](https://drive.google.com/file/d/1-MesnGibuXYwbGrk_S_6FZ2n5vATWobE/view?usp=sharing)
