@@ -60,7 +60,7 @@ Send me an [email](mailto://talanvor_divine@yahoo.com)!
 
 Screenshot
 
-[https://github.com/TalanvorD/SVG-Logo-Generator-Challenge-8/blob/main/SVG-screenshot.jpg](https://github.com/TalanvorD/SVG-Logo-Generator-Challenge-8/blob/main/SVG-screenshot.jpg)
+![screenshot](https://raw.githubusercontent.com/TalanvorD/SVG-Logo-Generator-Challenge-8/main/SVG-screenshot.jpg)
 
 Video
 
